@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 13:53:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-12 15:17:36
+ * @LastEditTime: 2021-04-12 17:01:40
  */
 
 import React, { Component } from 'react';
@@ -12,9 +12,10 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 // 引入store
 import store from './store/index'
-import Text from './pages/Test'
 // 子组件
-import Hello from './components/hello'
+// import Text from './pages/Test'
+// import Hello from './components/hello'
+import Demo1 from './components/demo1/TestFar'
  
 class App extends Component {
   render() {
@@ -22,8 +23,9 @@ class App extends Component {
       // Provider是react-redux两个核心工具之一，作用：将store传递到每个项目中的组件中
       <Provider store={store}>
         <div className="App">
-            <Text />
-            <Hello />
+            {/* <Text /> */}
+            {/* <Hello /> */}
+            <Demo1 />
         </div>
       </Provider>
     );
