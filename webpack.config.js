@@ -25,6 +25,7 @@ module.exports = {
         extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
         alias: { // 减少使用别名提高编译速速
             '@pages': path.join(__dirname, './src/pages'),
+            '@router': path.join(__dirname, './src/router'),
 
           },
     },
