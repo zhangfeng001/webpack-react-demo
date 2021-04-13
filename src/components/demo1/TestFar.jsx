@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-// import { Button } from 'antd';
+import { Button } from 'antd';
+import '../../style/cmtlist.scss' //样式
 import LifeCycle from './TestSon'
 class Demo  extends Component {
     constructor(props) {
@@ -28,17 +29,13 @@ class Demo  extends Component {
     }
 
     render() {
+        const itemStyle = {margin: '10px'};
         return (
             <div id='container'>
-                {/* <Button type="primary">Button</Button> */}
-                <p><a href="javascript:;" className="weui_btn weui_btn_primary" 
-                onClick={this.propsChange.bind(this)}>负传子改变</a></p>
-                <p><a href="javascript:;" className="weui_btn weui_btn_primary" 
-                onClick={this.setLifeCycleState.bind(this)}>调用子方法修改子的数据</a></p>
-                <p><a href="javascript:;" className="weui_btn weui_btn_primary" 
-                onClick={this.forceLifeCycleUpdate.bind(this)}>forceUpdate</a></p>
-                <p><a href="javascript:;" className="weui_btn weui_btn_primary" 
-                onClick={this.parentForceUpdate.bind(this)}>parentForceUpdateWithoutChange</a></p>
+                <Button type="primary" onClick={this.propsChange.bind(this)}>负传子改变</Button>
+                <Button type="primary" style = { { margin: '10px', } } onClick={this.setLifeCycleState.bind(this)}>调用子方法修改子的数据</Button>
+                <Button type="primary" style = {itemStyle} onClick={this.forceLifeCycleUpdate.bind(this)}>forceUpdate</Button>
+                <Button type="primary" className='buttonss' onClick={this.parentForceUpdate.bind(this)}>parentForceUpdateWithoutChange</Button>
                 <LifeCycle ref="rLifeCycle" num={this.state.num}></LifeCycle>
             </div>
         );
