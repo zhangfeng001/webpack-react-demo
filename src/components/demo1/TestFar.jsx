@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Button } from 'antd';
+import { Button } from 'antd';
 import LifeCycle from './TestSon'
 class Demo  extends Component {
     constructor(props) {
@@ -30,7 +30,7 @@ class Demo  extends Component {
     render() {
         return (
             <div id='container'>
-                {/* <Button type="primary">Button</Button> */}
+                <Button type="primary">Button</Button>
                 <p><a href="javascript:;" className="weui_btn weui_btn_primary" 
                 onClick={this.propsChange.bind(this)}>负传子改变</a></p>
                 <p><a href="javascript:;" className="weui_btn weui_btn_primary" 

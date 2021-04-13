@@ -4,14 +4,14 @@
  * @Author: lzy
  * @Date: 2021-04-12 13:53:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-13 10:13:43
+ * @LastEditTime: 2021-04-13 11:39:47
  */
 
 import React, { Component } from 'react';
-// 由于 antd 组件的默认文案是英文，所以需要修改为中文
-import zhCN from 'antd/lib/locale/zh_CN';
+// import zhCN from 'antd/lib/locale/zh_CN';
 import 'antd/dist/antd.css';
-import { ConfigProvider, DatePicker, message } from 'antd';
+import './style/base.scss'
+import './style/App.scss'
 // 子组件
 // import Text from './pages/Test'
 // import Hello from './components/hello'
@@ -24,14 +24,6 @@ class App extends Component {
             {/* <Text /> */}
             {/* <Hello /> */}
             <Demo1 />
-            <ConfigProvider locale={zhCN}>
-              <div style={{ width: 400, margin: '100px auto' }}>
-                <DatePicker onChange={handleChange} />
-                <div style={{ marginTop: 16 }}>
-                  当前日期：{date ? date.format('YYYY年MM月DD日') : '未选择'}
-                </div>
-              </div>
-            </ConfigProvider>
         </div>
     );
   }
