@@ -2,6 +2,9 @@
 
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+function resolve(relatedPath) {
+    return path.join(__dirname, relatedPath)
+  }
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
@@ -14,8 +17,16 @@ module.exports = {
             colors: true
         }
     },
+    output: {
+        path: resolve('../dist'),
+        // publicPath: './'
+      },
     resolve: {
-        extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx']
+        extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'],
+        alias: { // 减少使用别名提高编译速速
+            '@pages': path.join(__dirname, './src/pages'),
+
+          },
     },
     module: {
         rules: [

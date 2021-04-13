@@ -1,20 +1,13 @@
-/*
- * @Descripttion: 
- * @version: 
- * @Author: lzy
- * @Date: 2021-04-12 13:53:50
- * @LastEditors: Andy
- * @LastEditTime: 2021-04-12 15:17:36
- */
-
 import React, { Component } from 'react';
-// 状态管理
-import { Provider } from 'react-redux';
-// 引入store
-import store from './store/index'
-import Text from './pages/Test'
+import { Provider } from 'react-redux';// 状态管理
+import store from './store/index'// 引入store
+// import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Router, Route, hashHistory } from 'react-router';//路由跳转
+
 // 子组件
+import Text from './pages/Test'
 import Hello from './components/hello'
+import Home from './pages/Home'
  
 class App extends Component {
   render() {
@@ -24,6 +17,7 @@ class App extends Component {
         <div className="App">
             <Text />
             <Hello />
+            <Home />
         </div>
       </Provider>
     );
