@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 13:53:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-19 15:04:35
+ * @LastEditTime: 2021-04-19 17:36:25
  */
 import React, { Component } from 'react';
 // import zhCN from 'antd/lib/locale/zh_CN';
@@ -15,6 +15,7 @@ import './style/App.scss'
 // import Text from './pages/Test'
 // import Hello from './components/hello'
 // import Demo1 from './components/demo1/TestFar'
+import Demo1 from './components/antV/index'
 
 import {Link} from 'react-router-dom';
 
@@ -32,7 +33,7 @@ class App extends Component {
             </Link>
             {/* <Text /> */}
             {/* <Hello /> */}
-            {/* <Demo1 /> */}
+            <Demo1 />
         </div>
     );
   }
