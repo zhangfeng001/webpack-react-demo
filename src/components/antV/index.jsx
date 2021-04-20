@@ -1,203 +1,191 @@
 import React, { Component } from 'react'
-import { Graph, Node, Point } from '@antv/x6'
-class antv extends Component {
+import { Chart } from '@antv/g2';
+class Hello extends Component {
     constructor(props){
       super(props);
-    }
-    componentDidMount() {
-        Graph.registerNode(
-          'org-node',
-          {
-            width: 180,
-            height: 60,
-            markup: [
-              {
-                tagName: 'rect',
-                selector: 'body',
-              },
-              {
-                tagName: 'image',
-                selector: 'avatar',
-              },
-              {
-                tagName: 'text',
-                selector: 'rank',
-              },
-              {
-                tagName: 'text',
-                selector: 'name',
-              },
+      this.state = {
+            data: [
+                { name: 'London', '月份': 'Jan.', '月均降雨量': 18.9 },
+                { name: 'London', '月份': 'Feb.', '月均降雨量': 28.8 },
+                { name: 'London', '月份': 'Mar.', '月均降雨量': 39.3 },
+                { name: 'London', '月份': 'Apr.', '月均降雨量': 81.4 },
+                { name: 'London', '月份': 'May', '月均降雨量': 47 },
+                { name: 'London', '月份': 'Jun.', '月均降雨量': 20.3 },
+                { name: 'London', '月份': 'Jul.', '月均降雨量': 24 },
+                { name: 'London', '月份': 'Aug.', '月均降雨量': 35.6 },
+                { name: 'Berlin', '月份': 'Jan.', '月均降雨量': 12.4 },
+                { name: 'Berlin', '月份': 'Feb.', '月均降雨量': 23.2 },
+                { name: 'Berlin', '月份': 'Mar.', '月均降雨量': 34.5 },
+                { name: 'Berlin', '月份': 'Apr.', '月均降雨量': 99.7 },
+                { name: 'Berlin', '月份': 'May', '月均降雨量': 52.6 },
+                { name: 'Berlin', '月份': 'Jun.', '月均降雨量': 35.5 },
+                { name: 'Berlin', '月份': 'Jul.', '月均降雨量': 37.4 },
+                { name: 'Berlin', '月份': 'Aug.', '月均降雨量': 42.4 },
             ],
-            attrs: {
-              body: {
-                refWidth: '100%',
-                refHeight: '100%',
-                fill: '#FFFFFF',
-                stroke: '#000000',
-                strokeWidth: 2,
-                rx: 10,
-                ry: 10,
-                pointerEvents: 'visiblePainted',
-              },
-              avatar: {
-                width: 48,
-                height: 48,
-                refX: 8,
-                refY: 6,
-              },
-              rank: {
-                refX: 0.9,
-                refY: 0.2,
-                fontFamily: 'Courier New',
-                fontSize: 14,
-                textAnchor: 'end',
-                textDecoration: 'underline',
-              },
-              name: {
-                refX: 0.9,
-                refY: 0.6,
-                fontFamily: 'Courier New',
-                fontSize: 14,
-                fontWeight: '800',
-                textAnchor: 'end',
-              },
-            },
-          },
-          true,
-        )
+            pieData:[
+                { item: '事例一', count: 40, percent: 0.4 },
+                { item: '事例二', count: 21, percent: 0.21 },
+                { item: '事例三', count: 17, percent: 0.17 },
+                { item: '事例四', count: 13, percent: 0.13 },
+                { item: '事例五', count: 9, percent: 0.09 },
+            ],
+            tDate:[
+                { type: '汽车', value: 34 },
+                { type: '建材家居', value: 85 },
+                { type: '住宿旅游', value: 103 },
+                { type: '交通运输与仓储邮政', value: 142 },
+                { type: '建筑房地产', value: 251 },
+                { type: '教育', value: 367 },
+                { type: 'IT 通讯电子', value: 491 },
+                { type: '社会公共管理', value: 672 },
+                { type: '医疗卫生', value: 868 },
+                { type: '金融保险', value: 1234 },
+            ]
+      }
+    }
+    componentDidMount(){
+        this.readHistogram()
+        this.readPieChart()
+        this.readt()
+    }
+    readHistogram(){
+        const chart = new Chart({
+            container: 'container',
+            autoFit: true,
+        });
+        chart.data(this.state.data);
+        chart.scale('月均降雨量', {
+          nice: true,
+        });
+        chart.tooltip({
+          showMarkers: false,
+          shared: true,
+        });
         
-        Graph.registerEdge(
-          'org-edge',
-          {
-            zIndex: -1,
-            attrs: {
-              line: {
-                fill: 'none',
-                strokeLinejoin: 'round',
-                strokeWidth: '2',
-                stroke: '#4b4a67',
-                sourceMarker: null,
-                targetMarker: null,
-              },
+        chart
+          .interval()
+          .position('月份*月均降雨量')
+          .color('name')
+          .adjust([
+            {
+              type: 'dodge',
+              marginRatio: 0,
             },
-          },
-          true,
-        )
+          ]);
         
-        const graph = new Graph({
-          container: document.getElementById('container'),
-          width: 800,
-          height: 500,
-          grid: true,
-          connecting: {
-            anchor: 'orth',
+        chart.interaction('active-region');
+        chart.render();
+    }
+    readPieChart(){
+        const chart = new Chart({
+            container: 'container2',
+            autoFit: true,
+        });
+        chart.data(this.state.pieData);
+
+        chart.coordinate('theta', {
+          radius: 0.85
+        });
+        
+        chart.scale('percent', {
+          formatter: (val) => {
+            val = val * 100 + '%';
+            return val;
           },
-        })
-        graph.zoom(-0.5)
-        function member(
-          x,
-          y,
-          rank,
-          name,
-          image,
-          background,
-          textColor,
-        ) {
-          return graph.addNode({
-            x,
-            y,
-            shape: 'org-node',
-            attrs: {
-              body: {
-                fill: background,
-                stroke: 'none',
-              },
-              avatar: {
-                opacity: 0.7,
-                'xlink:href': image,
-              },
-              rank: {
-                text: rank,
-                fill: textColor,
-                wordSpacing: '-5px',
-                letterSpacing: 0,
-              },
-              name: {
-                text: name,
-                fill: textColor,
-                fontSize: 13,
-                fontFamily: 'Arial',
-                letterSpacing: 0,
-              },
+        });
+        chart.tooltip({
+          showTitle: false,
+          showMarkers: false,
+        });
+        chart.axis(false); // 关闭坐标轴
+        const interval = chart
+          .interval()
+          .adjust('stack')
+          .position('percent')
+          .color('item')
+          .label('percent', {
+            offset: -40,
+            style: {
+              textAlign: 'center',
+              shadowBlur: 2,
+              shadowColor: 'rgba(0, 0, 0, .45)',
+              fill: '#fff',
             },
           })
-        }
-        
-        function link(source, target, vertices) {
-          return graph.addEdge({
-            vertices,
-            source: { cell: source },
-            target: { cell: target },
-            shape: 'org-edge',
+          .tooltip('item*percent', (item, percent) => {
+            percent = percent * 100 + '%';
+            return {
+              name: item,
+              value: percent,
+            };
           })
-        }
-        const male =
-          'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*kUy8SrEDp6YAAAAAAAAAAAAAARQnAQ'
-        const female =
-          'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*f6hhT75YjkIAAAAAAAAAAAAAARQnAQ'
+          .style({
+            lineWidth: 1,
+            stroke: '#fff',
+          });
+        chart.interaction('element-single-selected');
+        chart.render();
         
-        const bart = member(300, 70, 'CEO', 'Bart Simpson', male, '#30d0c6')
-        const homer = member(
-          90,
-          200,
-          'VP Marketing',
-          'Homer Simpson',
-          male,
-          '#7c68fd',
-          '#f1f1f1',
-        )
-        const marge = member(
-          300,
-          200,
-          'VP Sales',
-          'Marge Simpson',
-          female,
-          '#7c68fd',
-          '#f1f1f1',
-        )
-        const lisa = member(
-          500,
-          200,
-          'VP Production',
-          'Lisa Simpson',
-          female,
-          '#7c68fd',
-          '#f1f1f1',
-        )
-        const maggie = member(400, 350, 'Manager', 'Maggie Simpson', female, '#feb563')
-        const lenny = member(190, 350, 'Manager', 'Lenny Leonard', male, '#feb563')
-        const carl = member(190, 500, 'Manager', 'Carl Carlson', male, '#feb563')
+        // 默认选择
+        interval.elements[0].setState('selected', true);
+    }
+    readt(){
+        const chart = new Chart({
+            container: 'container3',
+            autoFit: true,
+            height: 500,
+        });
+        chart.data(this.state.tDate);
+        chart.scale({
+            value: {
+            max: 1400,
+            min: 0,
+            alias: '销量（百万）',
+            },
+        });
+        chart.axis('type', {
+            title: null,
+            tickLine: null,
+            line: null,
+        });
         
-        link(bart, marge, [{ x: 385, y: 180 }])
-        link(bart, homer, [
-          { x: 385, y: 180 },
-          { x: 175, y: 180 },
-        ])
-        link(bart, lisa, [
-          { x: 385, y: 180 },
-          { x: 585, y: 180 },
-        ])
-        link(homer, lenny, [{ x: 175, y: 380 }])
-        link(homer, carl, [{ x: 175, y: 530 }])
-        link(marge, maggie, [{ x: 385, y: 380 }])
+        chart.axis('value', {
+            label: null,
+            title: {
+            offset: 30,
+            style: {
+                fontSize: 12,
+                fontWeight: 300,
+            },
+            },
+        });
+        chart.legend(false);
+        chart.coordinate().transpose();
+        chart
+            .interval()
+            .position('type*value')
+            .size(26)
+            .label('value', {
+            style: {
+                fill: '#8d8d8d',
+            },
+            offset: 10,
+            });
+        chart.interaction('element-active');
+        chart.render(); 
     }
     render() {
+      const itemStyle = {width: '49vw',height:'50vh',border:'1px solid #ccc'};
+      const itemStyle3 = {width: '100vw',height:'50vh',border:'1px solid #ccc'};
+      const divStyle = {display:'flex',flexWrap:'wrap',justifyContent:'space-between'};
       return (
-        <div>
-          <div id="container"></div>
+        <div style = {divStyle}>
+          <div style = {itemStyle} id="container"></div>
+          <div style = {itemStyle} id="container2"></div>
+          <div style = {itemStyle3} id="container3"></div>
         </div>
       );
     }
   }
    
-  export default antv;
+  export default Hello;
