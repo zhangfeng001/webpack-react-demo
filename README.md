@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 15:29:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-22 11:07:30
+ * @LastEditTime: 2021-04-22 16:27:16
 -->
 ## React
 踩到的坑解决方法：
@@ -17,8 +17,15 @@
 [全局引入scss](https://blog.csdn.net/chiuwingyan/article/details/78639542?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=1331303.8438.16182848848559347&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control)
 [创建组件的三种方式](https://www.cnblogs.com/wonyun/p/5930333.html)
 [基本面题](https://www.cnblogs.com/bzsheng/p/12690480.html)
-以下为项目基本信息↓
-
+[路由传参](https://www.jianshu.com/p/7ad7ab2745af)
+[配置路由表方法](https://www.jianshu.com/p/677433245697)
+以下为项目学习内容↓
+> 开发登录页（使用sessionStorage模拟用户登录）
+> jsx语法练习，生命周期执行规则
+> antv调研，包括X6,G6,G2，页面内使用了路由嵌套
+> antd调研 包含分页列表的案例
+> todoList经典综合案例（组件化开发）
+> webpack 的基本配置
 ### 技术栈
 
 ### 基本功能

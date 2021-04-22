@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 11:28:32
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-21 15:26:44
+ * @LastEditTime: 2021-04-22 15:51:57
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
 
 import { hot } from 'react-hot-loader/root'
-import Routes from '@router/routerMap'
+import App from './app'
 
 import 'antd/dist/antd.css'; //antd
 import './style/base.scss' //css初始化
@@ -22,11 +22,11 @@ import './style/cmtlist.scss' // 全局公共样式
 // 引入store
 import store from './store/index'
 
-const HotRoutes = hot(Routes)
+const HotApp = hot(App)
 
 const AppView = (
     <Provider store={store}>
-        <HotRoutes />
+        <HotApp />
     </Provider>
 )
 ReactDOM.render(AppView, document.getElementById("root"))

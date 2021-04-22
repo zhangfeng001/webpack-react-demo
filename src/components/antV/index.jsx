@@ -176,8 +176,8 @@ class Hello extends Component {
         chart.render(); 
     }
     render() {
-      const itemStyle = {width: '49vw',height:'50vh',border:'1px solid #ccc'};
-      const itemStyle3 = {width: '100vw',height:'50vh',border:'1px solid #ccc'};
+      const itemStyle = {width: '49vw',height:'calc(50vh - 20px)',border:'1px solid #ccc'};
+      const itemStyle3 = {width: '100vw',height:'calc(50vh - 2px)',border:'1px solid #ccc'};
       const divStyle = {display:'flex',flexWrap:'wrap',justifyContent:'space-between'};
       return (
         <div style = {divStyle}>

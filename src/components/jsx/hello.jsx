@@ -4,10 +4,10 @@
  * @Author: lzy
  * @Date: 2021-04-12 15:15:45
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-22 11:46:34
+ * @LastEditTime: 2021-04-22 12:40:31
  */
-import React, { Component } from 'react'
-class Hello extends Component {
+import React from 'react'
+class Jsxgrammar extends React.Component {
     constructor(props){
       super(props);
       this.state = {
@@ -46,9 +46,9 @@ class Hello extends Component {
           {poetrys.map((poetry,index) => <p key={index}>{poetry}</p>)}
         </div>
       )
-      // 4.组件/函数
-      function Poetry(){
-        return <p>笑渐不闻声渐悄。多情却被无情恼。</p>
+      // 4.组件/无状态函数
+      function Poetry(props){
+        return <p>笑渐不闻声渐悄。多情却被无情恼。{props.name}</p>
       }
       return (
         <div>
@@ -56,7 +56,7 @@ class Hello extends Component {
           <div>{jsx}</div>
           <div>{jsx2}</div>
           <div>{jsx3}</div>
-          <Poetry />
+          <Poetry name='无状态函数'/>
           <div>简单语法demo</div>
           <input 
             type='text' 
@@ -68,4 +68,4 @@ class Hello extends Component {
     }
   }
    
-  export default Hello;
+  export default Jsxgrammar;

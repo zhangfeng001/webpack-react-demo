@@ -4,12 +4,12 @@
  * @Author: lzy
  * @Date: 2021-04-12 16:15:25
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-22 11:42:58
+ * @LastEditTime: 2021-04-22 12:44:46
  */
 import React, { Component } from 'react'
 import { Button } from 'antd';
 import LifeCycle from './TestSon'
-class Demo  extends Component {
+class Lifecycle  extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,4 +48,4 @@ class Demo  extends Component {
     }
 }
 
-export default Demo
+export default Lifecycle
