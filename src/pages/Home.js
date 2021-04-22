@@ -4,11 +4,11 @@
  * @Author: lzy
  * @Date: 2021-04-13 11:41:24
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-21 15:59:38
+ * @LastEditTime: 2021-04-22 11:31:51
  */
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Demo1 from '../components/demo1/todoList'
+import Demo1 from '../components/lifeCycle/TestFar'
 class Home extends React.Component{
 	render(){
 		return(

@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 15:29:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-13 11:46:40
+ * @LastEditTime: 2021-04-22 11:07:30
 -->
 ## React
 踩到的坑解决方法：
@@ -15,6 +15,8 @@
 [父子传值的方法](https://www.jb51.net/article/162396.htm)
 [使用antd引入样式报错](https://www.cnblogs.com/wspblog/p/10457512.html)
 [全局引入scss](https://blog.csdn.net/chiuwingyan/article/details/78639542?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=1331303.8438.16182848848559347&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control)
+[创建组件的三种方式](https://www.cnblogs.com/wonyun/p/5930333.html)
+[基本面题](https://www.cnblogs.com/bzsheng/p/12690480.html)
 以下为项目基本信息↓
 
 ### 技术栈

@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: antd 分页列表
+ * @version: 
+ * @Author: lzy
+ * @Date: 2021-04-21 15:29:18
+ * @LastEditors: Andy
+ * @LastEditTime: 2021-04-22 09:28:29
+ */
 import React, { Component } from 'react'
 import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';

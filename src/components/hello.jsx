@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: jsx语法练习
+ * @version: 
+ * @Author: lzy
+ * @Date: 2021-04-12 15:15:45
+ * @LastEditors: Andy
+ * @LastEditTime: 2021-04-22 11:46:34
+ */
 import React, { Component } from 'react'
 class Hello extends Component {
     constructor(props){

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 class LifeCycle extends Component {
     // 1. 挂载卸载过程
     constructor(props) { // 完成了React数据的初始化
-        console.log('constructor',props)
         super(props); // 只要使用了constructor()就必须写super(),否则会导致this指向错误。
         this.state = {str: "hello"};
     }
@@ -48,7 +47,6 @@ class LifeCycle extends Component {
     }
 
     forceItUpdate() {
-        console.log(this.forceUpdate())
         this.forceUpdate();
     }
 
