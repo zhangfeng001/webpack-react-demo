@@ -1,22 +1,22 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: lzy
+ * @Date: 2021-04-13 11:41:24
+ * @LastEditors: Andy
+ * @LastEditTime: 2021-04-21 15:59:38
+ */
 import React from 'react';
-// 由于 antd 组件的默认文案是英文，所以需要修改为中文
-// import zhCN from 'antd/lib/locale/zh_CN';
-// import 'antd/dist/antd.css';
-// import { ConfigProvider, DatePicker, message } from 'antd';
-// 子组件
-// import Text from './pages/Test'
-// import Hello from './components/hello'
-import Demo1 from './components/demo1/TestFar'
-import { Route,HashRouter, Link} from 'react-router-dom';
-
-import Page1 from './page1/index'
-import Page2 from './page2/index'
-
+import {Link} from 'react-router-dom';
+import Demo1 from '../components/demo1/todoList'
 class Home extends React.Component{
 	render(){
 		return(
 			<div>
-				<div>This is Home!</div>
+				{/* <div>This is Home!</div>
+				<Link to='/login'>
+					<span>登录</span> 
+				</Link> */}
 				<Demo1 />
 			</div>
 		);

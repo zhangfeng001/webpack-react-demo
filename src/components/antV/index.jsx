@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Chart } from '@antv/g2';
+import { Button } from 'antd';
 class Hello extends Component {
     constructor(props){
       super(props);

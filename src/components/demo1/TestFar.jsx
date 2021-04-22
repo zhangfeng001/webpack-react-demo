@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button } from 'antd';
-import '../../style/cmtlist.scss' //样式
 import LifeCycle from './TestSon'
 class Demo  extends Component {
     constructor(props) {

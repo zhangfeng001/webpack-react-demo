@@ -225,6 +225,7 @@ class Hello extends Component {
     render() {
       return (
         <div>
+            <div className='welcomeDiv'>使用全局样式</div>
           <div id="container"></div>
         </div>
       );
