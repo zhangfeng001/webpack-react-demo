@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 15:29:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-22 16:27:16
+ * @LastEditTime: 2021-04-22 18:34:41
 -->
 ## React
 踩到的坑解决方法：
@@ -26,6 +26,10 @@
 > antd调研 包含分页列表的案例
 > todoList经典综合案例（组件化开发）
 > webpack 的基本配置
+
+redux act 异步处理
+jsx语法支持插件支持 if else
+
 ### 技术栈
 
 ### 基本功能
