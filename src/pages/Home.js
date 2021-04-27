@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-13 11:41:24
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-22 15:00:24
+ * @LastEditTime: 2021-04-25 14:32:40
  */
 import React from 'react';
 import {Link} from 'react-router-dom';
@@ -30,6 +30,7 @@ class Home extends React.Component{
 		}
     }
 	render(){
+    	console.log('this.propssss',this.props)
 		const style = {
 			link:{
 				width:'120px',
@@ -59,6 +60,12 @@ class Home extends React.Component{
 					</Link>
 					<Link style={style.link} to='/page5'>
 						<span>todoList经典案例</span> 
+					</Link>
+					<Link style={style.link} to='/page6'>
+						<span>axios封装练习</span> 
+					</Link>
+					<Link style={style.link} to='/page7'>
+						<span>redux练习</span> 
 					</Link>
 				</div>
 			</div>

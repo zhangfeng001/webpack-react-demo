@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 15:15:45
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-22 12:40:31
+ * @LastEditTime: 2021-04-25 11:29:48
  */
 import React from 'react'
 class Jsxgrammar extends React.Component {
@@ -21,6 +21,13 @@ class Jsxgrammar extends React.Component {
       let a = e.target.value
       this.setState({value : a})
       console.log(this.state.value)
+    }
+    Fun(){
+      if(true){
+        return <p>11111</p>
+      }else {
+        return <p>4545455</p>
+      }
     }
     render() {
       // 1. 基本用法
@@ -50,6 +57,13 @@ class Jsxgrammar extends React.Component {
       function Poetry(props){
         return <p>笑渐不闻声渐悄。多情却被无情恼。{props.name}</p>
       }
+      function Renderfun(){
+        if(true){
+          return <p>1212121111111111</p>
+        }else {
+          return <p>4545455</p>
+        }
+      }
       return (
         <div>
           <div>你好，react,jsx语法练习：</div>
@@ -63,6 +77,25 @@ class Jsxgrammar extends React.Component {
             value={this.state.value} 
             onChange={this.changeValue.bind(this)} 
           />
+          {/* 使用ifelse */}
+          <div>
+              {Renderfun()}
+          </div>
+          <Renderfun />
+          <div>
+              {this.Fun()}
+          </div>
+          {/* 自执行函数 */}
+          <div>{(()=>{
+            let num = Math.floor(Math.random()*3+1)
+            if (num == 1) {
+              return <p>111111111111111111</p>
+            }else if (num == 2){
+              return <p>22222222222222</p>
+            }else if (num == 3) {
+              return <p>333333333333</p>
+            }
+          })()}</div>
         </div>
       );
     }

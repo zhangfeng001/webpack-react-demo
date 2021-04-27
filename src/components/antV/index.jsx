@@ -176,9 +176,9 @@ class Hello extends Component {
         chart.render(); 
     }
     render() {
-      const itemStyle = {width: '49vw',height:'calc(50vh - 20px)',border:'1px solid #ccc'};
-      const itemStyle3 = {width: '100vw',height:'calc(50vh - 2px)',border:'1px solid #ccc'};
-      const divStyle = {display:'flex',flexWrap:'wrap',justifyContent:'space-between'};
+      const itemStyle = {width: '50%',height:'50%',border:'1px solid #ccc'};
+      const itemStyle3 = {width: '100%',height:'50%',border:'1px solid #ccc'};
+      const divStyle = {display:'flex',flexWrap:'wrap',justifyContent:'space-between',width:'100%',height:'100%'};
       return (
         <div style = {divStyle}>
           <div style = {itemStyle} id="container"></div>
