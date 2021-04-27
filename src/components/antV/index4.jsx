@@ -95,7 +95,7 @@ class Hello extends Component {
         });
     }
     render() {
-        const itemStyle = {width:'100vw',height:'400px'};
+        const itemStyle = {width:'600px',height:'400px'};
       return (
         <div>
             <div style={itemStyle} id="container"></div>

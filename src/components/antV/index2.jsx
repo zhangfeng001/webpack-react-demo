@@ -86,8 +86,8 @@ class antv extends Component {
         
         const graph = new Graph({
           container: document.getElementById('container'),
-          width: 800,
-          height: 500,
+          width: 600,
+          height: 400,
           grid: true,
           connecting: {
             anchor: 'orth',
