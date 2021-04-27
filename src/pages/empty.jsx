@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-04-27 17:23:25
  */
 import React, { Component } from 'react'
-import { routerView } from '@/utils/routerView'
+import { routerView } from '@/utils/view'
 class empty extends Component {
     constructor(props){
       super(props);

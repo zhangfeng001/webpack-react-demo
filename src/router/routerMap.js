@@ -4,8 +4,15 @@
  * @Author: lzy
  * @Date: 2021-04-13 11:41:24
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 17:48:18
+ * @LastEditTime: 2021-04-27 18:07:28
  */
+import React from 'react'
+import {
+    MenuUnfoldOutlined,
+    TeamOutlined,
+    TransactionOutlined
+  } from '@ant-design/icons';
+  
 import empty from '@/pages/empty'
 import Login from '@/pages/login'
 import layout from '@/pages/layout/index' 
@@ -19,9 +26,6 @@ import Antv2 from '@/components/antv/index1'
 import Antv3 from '@/components/antv/index2'
 import Antv4 from '@/components/antv/index3'
 import Antv5 from '@/components/antv/index4'
-import {
-    MenuUnfoldOutlined,
-  } from '@ant-design/icons';
 const router = [
     {
         path:'/',
@@ -35,51 +39,51 @@ const router = [
     {
         path:'/home',
         name:'首页',
-        icon:MenuUnfoldOutlined,
+        icon:<MenuUnfoldOutlined />,
         component:layout,
         childen:[
                 {
                     path:'/home/Page1',
                     name:'jsx语法练习',
-                    icon:MenuUnfoldOutlined,
+                    icon:<TeamOutlined />,
                     component:page1,
                 },
                 {
                     path:'/home/Page2',
                     name:'生命周期',
-                    icon:MenuUnfoldOutlined,
+                    icon:<TransactionOutlined />,
                     component:page2,
                 },
                 {
                     path:'/home/antv',
                     name:'antv系列',
-                    icon:MenuUnfoldOutlined,
+                    icon:<MenuUnfoldOutlined />,
                     component:empty,
                     childen:[
                         {
                             path:'/home/antv/Antv1',
                             name:'柱状图',
-                            icon:MenuUnfoldOutlined,
+                            icon:<MenuUnfoldOutlined />,
                             component:Antv1,
                         },{
                             path:'/home/antv/Antv2',
                             name:'拖拽',
-                            icon:MenuUnfoldOutlined,
+                            icon:<MenuUnfoldOutlined />,
                             component:Antv2,
                         },{
                             path:'/home/antv/Antv3',
                             name:'层级',
-                            icon:MenuUnfoldOutlined,
+                            icon:<MenuUnfoldOutlined />,
                             component:Antv3,
                         },{
                             path:'/home/antv/Antv4',
                             name:'加虚框',
-                            icon:MenuUnfoldOutlined,
+                            icon:<MenuUnfoldOutlined />,
                             component:Antv4,
                         },{
                             path:'/home/antv/Antv5',
                             name:'加组',
-                            icon:MenuUnfoldOutlined,
+                            icon:<MenuUnfoldOutlined />,
                             component:Antv5,
                         }
                     ]
@@ -87,19 +91,19 @@ const router = [
                 {
                     path:'/home/Page4',
                     name:'antd列表',
-                    icon:MenuUnfoldOutlined,
+                    icon:<MenuUnfoldOutlined />,
                     component:page4,
                 },
                 {
                     path:'/home/Page5',
                     name:'TODOLIST',
-                    icon:MenuUnfoldOutlined,
+                    icon:<MenuUnfoldOutlined />,
                     component:page5,
                 },
                 {
                     path:'/home/Page6',
                     name:'封装axios测试',
-                    icon:MenuUnfoldOutlined,
+                    icon:<MenuUnfoldOutlined />,
                     component:page6,
                 },
         ]

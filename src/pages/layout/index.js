@@ -4,19 +4,17 @@
  * @Author: lzy
  * @Date: 2021-04-12 13:41:36
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 17:44:49
+ * @LastEditTime: 2021-04-27 18:00:57
  */
 import React from 'react'
 import { Layout, Menu } from 'antd';
-const { SubMenu } = Menu
 import './style.css'
 const { Header, Sider, Content } = Layout;
 import {
   MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  MailOutlined
+  MenuFoldOutlined
 } from '@ant-design/icons';
-import { routerView } from '@/utils/routerView' // 子路由
+import { routerView,deepMenuList } from '@/utils/view' // 子路由
 class List extends React.Component {
     constructor(props){
         super(props)
@@ -57,19 +55,6 @@ class List extends React.Component {
         })
     }
     render(){
-        function deepMenuList(array) {// 根据配置路由生成侧边栏
-            return array.map(element => {
-                return element.childen ? 
-                <SubMenu key={element.path} icon={<MailOutlined />} title={element.name}>
-                    { // 递归查找
-                        deepMenuList(element.childen)
-                    }
-                </SubMenu> :
-                <Menu.Item key={element.path} icon={<MailOutlined />}>
-                    {element.name}
-                </Menu.Item>
-            })
-        }
         return(
             <Layout className='layout'>
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
