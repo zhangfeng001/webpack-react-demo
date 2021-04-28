@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-13 11:41:24
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 18:07:28
+ * @LastEditTime: 2021-04-28 10:46:23
  */
 import React from 'react'
 import {
@@ -21,6 +21,7 @@ import page2 from '@/pages/page2/index'
 import page4 from '@/pages/page4/index' 
 import page5 from '@/pages/page5/index' 
 import page6 from '@/pages/page6/index' 
+import page7 from '@/components/Test' 
 import Antv1 from '@/components/antv/index'
 import Antv2 from '@/components/antv/index1'
 import Antv3 from '@/components/antv/index2'
@@ -105,6 +106,12 @@ const router = [
                     name:'封装axios测试',
                     icon:<MenuUnfoldOutlined />,
                     component:page6,
+                },
+                {
+                    path:'/home/Page7',
+                    name:'redux练习',
+                    icon:<MenuUnfoldOutlined />,
+                    component:page7,
                 },
         ]
     },

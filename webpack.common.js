@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-27 13:17:43
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 13:55:36
+ * @LastEditTime: 2021-04-28 10:48:25
  */
 //webpackage.common.js
 
@@ -22,6 +22,7 @@ module.exports = {
         path: resolve("/dist"), //打包后的文件存放的地方
         // filename: "bundle.js" //打包后输出文件的文件名
     },
+    devtool: 'source-map',  // 代码调试
     // loaders
     module: {
         rules: [
