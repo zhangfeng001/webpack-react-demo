@@ -4,10 +4,11 @@
  * @Author: lzy
  * @Date: 2021-04-12 13:41:36
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 18:00:57
+ * @LastEditTime: 2021-04-28 17:40:42
  */
 import React from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu,Dropdown, Button } from 'antd';
+import { connect } from 'react-redux'
 import './style.css'
 const { Header, Sider, Content } = Layout;
 import {
@@ -31,7 +32,8 @@ class List extends React.Component {
     menuClick(e){
         this.props.history.push(e.key)
         this.setState({
-            page:[e.key]
+            page:[e.key],
+            username:''
         })
     }
     componentWillMount() {// 页面刷新会到此
@@ -42,7 +44,8 @@ class List extends React.Component {
 		const {query} = this.props.location
 		if (sessinUser || query && query.user) {
 			this.setState({
-			username:sessinUser || query.user},()=>{
+			    username:sessinUser || query.user
+            },()=>{
 				console.log('赋值完毕')
 			})
 		}else {
@@ -54,7 +57,18 @@ class List extends React.Component {
             page:[nextProps.location.pathname]
         })
     }
+    loginOut(){
+        this.props.history.push('/login')
+    }
     render(){
+        let { lllPageTitle } = this.props
+        const menu = (
+            <Menu>
+                <Menu.Item onClick={this.loginOut.bind(this)}>
+                    退出登录
+                </Menu.Item>
+            </Menu>
+        )
         return(
             <Layout className='layout'>
                 <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
@@ -69,6 +83,12 @@ class List extends React.Component {
                             className: 'trigger',
                             onClick: this.toggle.bind(this),
                         })}
+                        {
+                            lllPageTitle
+                        }
+                        <Dropdown overlay={menu} placement="bottomLeft" arrow>
+                            <div style={{float:'right',marginRight:'20px',corsor:'pointer'}}>{this.state.username}</div>
+                        </Dropdown>
                     </Header>
                     <Content
                         className="site-layout-background"
@@ -86,4 +106,9 @@ class List extends React.Component {
         )
     }
 } 
-export default List;
+const mapStateToProps = (state) => {
+    return {
+      lllPageTitle: state.pageTitle,
+    }
+  }
+export default connect(mapStateToProps)(List);

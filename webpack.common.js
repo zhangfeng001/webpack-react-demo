@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-27 13:17:43
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-28 10:48:25
+ * @LastEditTime: 2021-04-28 16:29:27
  */
 //webpackage.common.js
 
@@ -44,6 +44,25 @@ module.exports = {
             { 
                 test: /\.(scss|sass)$/, // 加载scss 的loader
                 use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                use:[
+                    //坑 https://blog.csdn.net/Hreticent/article/details/111321607
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 200000, // 200k以下
+                            name: 'img/[name].[hash:7].[ext]'
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true,
+                        }
+                    }
+                ]
             }
         ]
     },

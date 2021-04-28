@@ -4,8 +4,9 @@
  * @Author: lzy
  * @Date: 2021-04-12 14:44:16
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-12 15:05:24
+ * @LastEditTime: 2021-04-28 14:56:21
  */
+import { getMockList } from "@/api";
 // action也是函数
 export function setPageTitle (data) {
     return (dispatch, getState) => {
@@ -15,20 +16,12 @@ export function setPageTitle (data) {
   
   export function setInfoList (data) {
     return (dispatch, getState) => {
-      // 使用fetch实现异步请求
-      window.fetch('/api/getInfoList', {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      }).then(res => {
-          return res.json()
-      }).then(data => {
-        console.log('data',data)
-          // let { code, data } = data
-          // if (code === 0) {
-          //     dispatch({ type: 'SET_INFO_LIST', data: data })
-          // }
+      getMockList().then((res)=>{
+        let { code,result } = res
+        if(code == 200) {
+          console.log('mock success:',res)
+          dispatch({ type: 'SET_INFO_LIST', data: result.userinfo })
+        }
       })
     }
   }

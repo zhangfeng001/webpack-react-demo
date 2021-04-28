@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-25 14:02:28
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 10:29:37
+ * @LastEditTime: 2021-04-28 15:02:36
  */
 /**
  * 网络请求配置
@@ -49,7 +49,7 @@
   * @param params  请求参数
   * @returns {Promise}
   */
- export function get(url, params = {}) {
+function get(url, params = {}) {
    return new Promise((resolve, reject) => {
      axios.get(url, {
          params: params,
@@ -70,7 +70,7 @@
   * @returns {Promise}
   */
  
- export function post(url, data) {
+function post(url, data) {
    return new Promise((resolve, reject) => {
      axios.post(url, data).then(
        (response) => {
@@ -90,7 +90,7 @@
   * @param data
   * @returns {Promise}
   */
- export function patch(url, data = {}) {
+function patch(url, data = {}) {
    return new Promise((resolve, reject) => {
      axios.patch(url, data).then(
        (response) => {
@@ -111,7 +111,7 @@
   * @returns {Promise}
   */
  
- export function put(url, data = {}) {
+function put(url, data = {}) {
    return new Promise((resolve, reject) => {
      axios.put(url, data).then(
        (response) => {

@@ -4,22 +4,20 @@
  * @Author: lzy
  * @Date: 2021-04-25 14:07:24
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 10:26:28
+ * @LastEditTime: 2021-04-28 14:47:33
  */
 import http from '@/utils/http';
+
+import "@/mock"
 /**
- * 获取首页列表
+ * get
  */
- function getArticleList(){
-    return new Promise((resolve, reject) => {
-      http("get",'/article/home/index').then(res => {
-        resolve (res);
-      },error => {
-        reject(error)
-      })
-    }) 
-  }
-  
-export {
-    getArticleList
+export const getMockList = () => {
+  return http("get",'/getMockList')
+}
+/**
+ * post
+ */
+export const postMockList = (data) => {
+  return http("post",'/postMockList',data)
 }
