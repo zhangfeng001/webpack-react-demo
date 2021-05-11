@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-27 13:17:43
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-28 16:29:27
+ * @LastEditTime: 2021-05-06 14:44:10
  */
 //webpackage.common.js
 
@@ -23,6 +23,13 @@ module.exports = {
         // filename: "bundle.js" //打包后输出文件的文件名
     },
     devtool: 'source-map',  // 代码调试
+    resolve: {
+        extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'], //   引入可以省略后缀
+        mainFiles: ["index"],// 解析目录时要使用的文件名 比如 index.wasm index.mjs..就可以省略了
+        alias: { // 减少使用别名提高编译速速
+            '@': resolve("./src"),
+          },
+    },
     // loaders
     module: {
         rules: [
@@ -68,7 +75,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: 'public/index.html',
+            template: resolve("/public/index.html"),
             filename: 'index.html',
             inject: true
         }),

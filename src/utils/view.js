@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-27 17:11:36
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 18:04:22
+ * @LastEditTime: 2021-05-06 17:01:16
  */
 import React from 'react'
 import { Route,Switch,Redirect } from 'react-router-dom';
@@ -25,15 +25,9 @@ export const routerView = (array)=>{
     return <Switch>
         {
             array.map((route,key)=>{
-                if (route.redirect){
-                return <Route key={key} exact={!route.childen} path={route.path} render={()=>(
-                    <Redirect to={route.redirect}/>
-                )}/>
-                }else {
                 return <Route key={key} exact={!route.childen} path={route.path} render={props=>(
-                    <route.component {...props} childen={route.childen}/>
+                    route.redirect ?<Redirect to={route.redirect}/>:<route.component {...props} childen={route.childen}/>
                 )}/>
-                }
             })
         }
     </Switch>

@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-27 13:17:50
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-27 13:47:55
+ * @LastEditTime: 2021-05-06 14:44:01
  */
 // webpack.dev.js
 const path = require('path');
@@ -26,12 +26,5 @@ module.exports = merge(common,{
         inline: true, // 文件修改后实时刷新
         historyApiFallback: true, //不跳转
         hot: true // 热更新
-    },
-    resolve: {
-        extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx'], //   引入可以省略后缀
-        mainFiles: ["index"],// 解析目录时要使用的文件名 比如 index.wasm index.mjs..就可以省略了
-        alias: { // 减少使用别名提高编译速速
-            '@': resolve("./src"),
-          },
     },
 });

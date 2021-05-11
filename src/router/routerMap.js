@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-13 11:41:24
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-28 16:31:06
+ * @LastEditTime: 2021-05-10 11:50:48
  */
 import React from 'react'
 import {
@@ -21,6 +21,7 @@ import page2 from '@/pages/page2/index'
 import page4 from '@/pages/page4/index' 
 import page5 from '@/pages/page5/index' 
 import page6 from '@/pages/page6/index' 
+import page77 from '@/pages/page7/index'
 import page7 from '@/components/redux/Test' 
 import Antv1 from '@/components/antv/index'
 import Antv2 from '@/components/antv/index1'
@@ -88,6 +89,24 @@ const router = [
                             component:Antv5,
                         }
                     ]
+                },
+                {
+                    path:'/home/one',
+                    name:'多级嵌套',
+                    icon:<MenuUnfoldOutlined />,
+                    component:empty, 
+                    childen:[{
+                        path:'/home/one/two',
+                        name:'二级',
+                        icon:<MenuUnfoldOutlined />,
+                        component:empty,
+                        childen:[{
+                            path:'/home/one/two/three',
+                            name:'三级',
+                            icon:<MenuUnfoldOutlined />,
+                            component:page77,
+                        }]
+                    }]
                 },
                 {
                     path:'/home/Page4',

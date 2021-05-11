@@ -4,7 +4,7 @@
  * @Author: lzy
  * @Date: 2021-04-12 13:41:36
  * @LastEditors: Andy
- * @LastEditTime: 2021-04-28 17:40:42
+ * @LastEditTime: 2021-05-06 17:38:03
  */
 import React from 'react'
 import { Layout, Menu,Dropdown, Button } from 'antd';
@@ -99,6 +99,7 @@ class List extends React.Component {
                         overflowX:'auto',
                         }}
                     >
+                        
                         {routerView(this.props.childen)}
                     </Content>
                 </Layout>
